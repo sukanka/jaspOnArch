@@ -1,0 +1,32 @@
+_cranname=qgraph
+_cranver=1.9.2
+pkgname=r-${_cranname,,}
+pkgver=${_cranver//[:-]/.}
+pkgrel=1
+pkgdesc="Weighted network visualization and analysis, as well as Gaussian graphical model computation"
+arch=('x86_64')
+url="https://cran.r-project.org/package=${_cranname}"
+license=('GPL2')
+depends=(r
+'r-rcpp'
+'r-psych'
+'r-lavaan' 'r-plyr' 'r-hmisc' 'r-igraph' 'r-jpeg' 
+'r-png' 'r-colorspace'  'r-corpcor' 'r-reshape2' 'r-ggplot2'
+'r-glasso' 'r-fdrtool' 'r-gtools'  'r-pbapply' 'r-abind'
+)
+makedepends=(
+    'gcc-fortran'
+)
+optdepends=('r-bdgraph' 'r-huge')
+source=("https://cran.r-project.org/src/contrib/${_cranname}_${_cranver}.tar.gz")
+sha256sums=('baf190f6db30c4d5a3dc7ab5043b8ec0f79071d515c818c8e7666b9bcf2a4264')
+
+build() {
+  R CMD INSTALL ${_cranname}_${_cranver}.tar.gz -l "${srcdir}"
+}
+
+package() {
+  install -dm0755 "${pkgdir}/usr/lib/R/library"
+
+  cp -a --no-preserve=ownership "${_cranname}" "${pkgdir}/usr/lib/R/library"
+}

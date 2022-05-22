@@ -2,6 +2,7 @@
 
 pkgname=jasp-desktop
 _pkgname=jasp
+_cran="https://mirrors.bfsu.edu.cn/CRAN"
 pkgver=0.16.2
 pkgrel=1
 pkgdesc="A complete statistical package for both Bayesian and Frequentist statistical methods"
@@ -23,19 +24,7 @@ makedepends=("cmake" 'boost' 'jsoncpp'
 'readstat'
 
 'r-rinside'
-
-# below should be replaced by 'r-jaspbase'
-'r-ggplot2'
-'r-gridextra'
-'r-gridgraphics'
-'r-jsonlite'
-'r-modules' 'r-officer' 'r-pkgbuild'
-'r-plyr' 'r-qgraph' 'r-ragg' 'r-R6' 'r-renv'
-'r-rjson' 'r-rvg' 'r-svglite' 'r-systemfonts'
-'r-withr' 'r-testthat'
-'r-data.table' 'r-httr' 'r-lifecycle'
-'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
-'r-vdiffr'
+# 'r-jaspbase'
 
 )
 provides=($_pkgname)
@@ -43,16 +32,26 @@ source=("${pkgname}-${pkgver}.tar.gz::https://github.com/jasp-stats/jasp-desktop
 "${_pkgname}".patch
 "jaspColumnEncoder::git+https://github.com/jasp-stats/jaspColumnEncoder.git#commit=aaacc69"
 'jaspResults::git+https://github.com/jasp-stats/jaspResults.git#commit=fdcd76'
+'jaspBase::git+https://github.com/jasp-stats/jaspBase.git#commit=026404c'
+'jaspGraphs::git+https://github.com/jasp-stats/jaspGraphs.git#commit=1e39c726'
+'jaspTools::git+https://github.com/jasp-stats/jaspTools.git#commit=98953594'
 )
 sha256sums=('6f62db1b2b0741c894a7937f413799887e0d443f25f1b85d59e914847b14fff1'
-            'f384777d02de90dab9d0c9cace70761942f0e50011baa685be5ebd99614b5d08'
+            '43037b7518ac67fa604f6e9a3edc260978429a69cb75aeca7661e199ed64e565'
+            'SKIP'
+            'SKIP'
+            'SKIP'
             'SKIP'
             'SKIP')
 
 prepare(){
     cd $srcdir/${pkgname}-${pkgver}
-    cp -rf $srcdir/jaspColumnEncoder/* Common/jaspColumnEncoder
-    cp -rf $srcdir/jaspResults/* R-Interface/jaspResults
+    patch --strip=1 < ../${_pkgname}.patch
+    cp -rf $srcdir/jaspColumnEncoder/*  Common/jaspColumnEncoder
+    cp -rf $srcdir/jaspResults/*        R-Interface/jaspResults
+    cp -rf $srcdir/jaspBase/*           Engine/jaspBase
+    cp -rf $srcdir/jaspGraphs/*         Engine/jaspGraphs
+    cp -rf $srcdir/jaspTools/*          Tools/jaspTools
     
     find Tools/CMake -name *.cmake -print0 | xargs -0 sed -i "s|/usr/local|/usr|g"
 }
@@ -60,12 +59,17 @@ prepare(){
 
 build(){
     cd $srcdir/${pkgname}-${pkgver}
-    cmake -S . -B build -DCUSTOM_R_PATH=/usr/lib/R -DLINUX_LOCAL_BUILD=OFF -DINSTALL_R_MODULES=OFF 
+    mkdir -p ${srcdir}/usr/lib/R
+    cmake -S . -B build -DCUSTOM_R_PATH=/usr/lib/R -DLINUX_LOCAL_BUILD=OFF -DINSTALL_R_MODULES=OFF \
+        -DUSE_LOCAL_R_LIBS_PATH=",lib=\"${srcdir}/usr/lib/R\"" \
+        -DR_REPOSITORY="${_cran}" \
+        -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib \
+        -DruntimePREFIX=/usr
         
     cmake --build build
 }
 
 package() {
-     cd $srcdir/
-     
+     cd $srcdir/${pkgname}-${pkgver}/build
+     make install DESTDIR=${pkgdir}
 }

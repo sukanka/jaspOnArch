@@ -1,0 +1,28 @@
+_cranname=rvg
+_cranver=0.2.5
+pkgname=r-${_cranname,,}
+pkgver=${_cranver//[:-]/.}
+pkgrel=1
+pkgdesc="R Graphics Devices for Vector Graphics Output"
+arch=('x86_64')
+url="https://cran.r-project.org/package=${_cranname}"
+license=('GPL3')
+depends=(r
+'r-officer'
+'r-gdtools'
+'r-xml2'
+'r-rlang'
+)
+
+source=("https://cran.r-project.org/src/contrib/${_cranname}_${_cranver}.tar.gz")
+sha256sums=('92a464c7d4258c7ed20fa315fd392f48e3f870f958edaff923854295b2a60ac4')
+
+build() {
+  R CMD INSTALL ${_cranname}_${_cranver}.tar.gz -l "${srcdir}"
+}
+
+package() {
+  install -dm0755 "${pkgdir}/usr/lib/R/library"
+
+  cp -a --no-preserve=ownership "${_cranname}" "${pkgdir}/usr/lib/R/library"
+}
