@@ -1,0 +1,71 @@
+# Maintainer: sukanka <su975853527 AT gmail dot com>
+
+pkgname=jasp-desktop
+_pkgname=jasp
+pkgver=0.16.2
+pkgrel=1
+pkgdesc="A complete statistical package for both Bayesian and Frequentist statistical methods"
+arch=('any')
+url="https://github.com/hkrn/nanoem"
+license=('AGPL3')
+makedepends=("cmake" 'boost' 'jsoncpp'
+'libarchive'
+'openssl'
+'autoconf'
+'zlib'
+'bison'
+'flex'
+'jags'
+'qt6-base'
+'gcc-fortran'
+'r'
+'qtcreator'
+'readstat'
+
+'r-rinside'
+
+# below should be replaced by 'r-jaspbase'
+'r-ggplot2'
+'r-gridextra'
+'r-gridgraphics'
+'r-jsonlite'
+'r-modules' 'r-officer' 'r-pkgbuild'
+'r-plyr' 'r-qgraph' 'r-ragg' 'r-R6' 'r-renv'
+'r-rjson' 'r-rvg' 'r-svglite' 'r-systemfonts'
+'r-withr' 'r-testthat'
+'r-data.table' 'r-httr' 'r-lifecycle'
+'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
+'r-vdiffr'
+
+)
+provides=($_pkgname)
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/jasp-stats/jasp-desktop/archive/refs/tags/v0.16.2.tar.gz"
+"${_pkgname}".patch
+"jaspColumnEncoder::git+https://github.com/jasp-stats/jaspColumnEncoder.git#commit=aaacc69"
+'jaspResults::git+https://github.com/jasp-stats/jaspResults.git#commit=fdcd76'
+)
+sha256sums=('6f62db1b2b0741c894a7937f413799887e0d443f25f1b85d59e914847b14fff1'
+            'f384777d02de90dab9d0c9cace70761942f0e50011baa685be5ebd99614b5d08'
+            'SKIP'
+            'SKIP')
+
+prepare(){
+    cd $srcdir/${pkgname}-${pkgver}
+    cp -rf $srcdir/jaspColumnEncoder/* Common/jaspColumnEncoder
+    cp -rf $srcdir/jaspResults/* R-Interface/jaspResults
+    
+    find Tools/CMake -name *.cmake -print0 | xargs -0 sed -i "s|/usr/local|/usr|g"
+}
+
+
+build(){
+    cd $srcdir/${pkgname}-${pkgver}
+    cmake -S . -B build -DCUSTOM_R_PATH=/usr/lib/R -DLINUX_LOCAL_BUILD=OFF -DINSTALL_R_MODULES=OFF 
+        
+    cmake --build build
+}
+
+package() {
+     cd $srcdir/
+     
+}
