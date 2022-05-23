@@ -3,3 +3,4 @@
 jasp-desktop/**/*
 r-jaspbase/**/
 .SRCINFO
+!*.patch
