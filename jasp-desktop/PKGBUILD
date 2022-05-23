@@ -67,6 +67,7 @@ build(){
     mkdir -p ${srcdir}/usr/lib/R
     cmake -S . -B build -DCUSTOM_R_PATH=/usr/lib/R -DLINUX_LOCAL_BUILD=OFF -DINSTALL_R_MODULES=OFF \
         -DUSE_LOCAL_R_LIBS_PATH=",lib=\"${srcdir}/usr/lib/R\"" \
+        -DCMAKE_BUILD_TYPE=Release \
         -DR_REPOSITORY="${_cran}" \
         -DCMAKE_INSTALL_PREFIX=/usr/lib/${pkgname} -DCMAKE_INSTALL_LIBDIR=lib 
         
