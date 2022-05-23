@@ -54,6 +54,7 @@ prepare(){
     cp -rf $srcdir/jaspBase/*           Engine/jaspBase
     cp -rf $srcdir/jaspGraphs/*         Engine/jaspGraphs
     cp -rf $srcdir/jaspTools/*          Tools/jaspTools
+    cp -rf $srcdir/jaspColumnEncoder/*  R-Interface/jaspResults/src/jaspColumnEncoder
     
     find Tools/CMake -name *.cmake -print0 | xargs -0 sed -i "s|/usr/local|/usr|g"
 }
