@@ -12,6 +12,7 @@ depends=(r
 'r-gridextra'
 'r-gridgraphics'
 'r-jsonlite'
+'r-modules'
  'r-officer' 'r-pkgbuild'
 'r-plyr' 'r-qgraph' 'r-ragg' 'r-r6' 'r-renv'
 'r-rjson' 'r-rvg' 'r-svglite' 'r-systemfonts'
@@ -27,13 +28,12 @@ sha256sums=('SKIP')
 
 
 build() {
-  R CMD build ${_cranname}
-  rm -rf ${_cranname}
-  R CMD INSTALL ${_cranname} -l "${srcdir}"
+  mkdir -p ${srcdir}/usr/lib/R/library
+  R -e "install.packages('${srcdir}/${_cranname}',\
+     type='source', repos=NULL,lib='${srcdir}/usr/lib/R/library', INSTALL_opts='--no-multiarch --no-docs --no-test-load')"
 }
 
 package() {
-  install -dm0755 "${pkgdir}/usr/lib/R/library"
 
-  cp -a --no-preserve=ownership "${_cranname}" "${pkgdir}/usr/lib/R/library"
+  cp -a --no-preserve=ownership "${srcdir}/usr" "${pkgdir}"
 }
