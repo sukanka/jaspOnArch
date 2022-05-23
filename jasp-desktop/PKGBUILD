@@ -73,7 +73,7 @@ build(){
 package() {
      cd $srcdir/${pkgname}-${pkgver}/build
      make install DESTDIR=${pkgdir}
-     sed -i "s|^Exec.*|Exec=JASP %f|g" \
+     sed -i "s|^Exec.*|Exec=jasp %f|g" \
         ${pkgdir}/usr/share/applications/org.jaspstats.JASP.desktop
         
     # fix RPATH
