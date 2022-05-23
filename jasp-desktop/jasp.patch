@@ -31,30 +31,3 @@ diff --color --unified --recursive --text jasp-desktop-0.16.2/Tools/CMake/Module
        install.packages('${PROJECT_SOURCE_DIR}/Engine/jaspBase/', type='source', repos=NULL ${USE_LOCAL_R_LIBS_PATH}, INSTALL_opts='--no-multiarch --no-docs --no-test-load')
      }
      ")
-diff --color --unified --recursive --text jasp-desktop-0.16.2/Tools/CMake/Install.cmake jasp-desktop-0.16.21/Tools/CMake/Install.cmake
---- jasp-desktop-0.16.2/Tools/CMake/Install.cmake	2022-04-19 15:47:06.000000000 +0800
-+++ jasp-desktop-0.16.21/Tools/CMake/Install.cmake	2022-05-23 13:21:15.691733419 +0800
-@@ -150,9 +150,10 @@
-     set(JASP_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
-   endif()
-   set(JASP_INSTALL_BINDIR "${JASP_INSTALL_PREFIX}/bin")
--  set(JASP_INSTALL_RESOURCEDIR "${JASP_INSTALL_PREFIX}/Resources")
--  set(JASP_INSTALL_MODULEDIR "${JASP_INSTALL_PREFIX}/Modules")
--
-+  set(JASP_INSTALL_RESOURCEDIR "${JASP_INSTALL_PREFIX}/share/jasp-desktop")
-+  set(JASP_INSTALL_MODULEDIR "${JASP_INSTALL_PREFIX}/lib/jasp-desktop")
-+  set_target_properties( JASP PROPERTIES OUTPUT_NAME "jasp" ) 
-+  set_target_properties( JASPEngine PROPERTIES OUTPUT_NAME "jaspengine" ) 
-   install(
-     TARGETS JASP JASPEngine
-     RUNTIME DESTINATION ${JASP_INSTALL_BINDIR}
-@@ -165,10 +166,10 @@
-           DESTINATION ${JASP_INSTALL_MODULEDIR})
- 
-   install(DIRECTORY ${MODULES_RENV_ROOT_PATH}/
--          DESTINATION ${JASP_INSTALL_PREFIX}/lib64/renv-root)
-+          DESTINATION ${JASP_INSTALL_PREFIX}/lib/jasp-desktop/renv-root)
- 
-   install(DIRECTORY ${MODULES_RENV_CACHE_PATH}/
--          DESTINATION ${JASP_INSTALL_PREFIX}/lib64/renv-cache)
-+          DESTINATION ${JASP_INSTALL_PREFIX}/lib/jasp-desktop/renv-cache)
