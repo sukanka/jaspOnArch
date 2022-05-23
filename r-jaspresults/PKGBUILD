@@ -1,0 +1,35 @@
+_cranname=jaspResults
+_cranver=1.16
+pkgname=r-${_cranname,,}
+pkgver=${_cranver//[:-]/.}
+pkgrel=1
+pkgdesc="Easy results for your JASP analysis"
+arch=('x86_64')
+url="https://cran.r-project.org/package=${_cranname}"
+license=('GPL2+')
+depends=(r
+'r-rcpp'
+)
+makedepends=()
+optdepends=('r-jaspgraphs')
+source=("git+https://github.com/jasp-stats/${_cranname}.git"
+"jaspColumnEncoder::git+https://github.com/jasp-stats/jaspColumnEncoder.git#commit=aaacc69"
+)
+sha256sums=('SKIP'
+            'SKIP')
+
+prepare(){
+  cp -rf $srcdir/jaspColumnEncoder/* $srcdir/${_cranname}/src/jaspColumnEncoder
+
+}
+
+build() {
+  mkdir -p ${srcdir}/usr/lib/R/library
+  R -e "install.packages('${srcdir}/${_cranname}',\
+     type='source', repos=NULL,lib='${srcdir}/usr/lib/R/library', INSTALL_opts='--no-multiarch --no-docs --no-test-load')"
+}
+
+package() {
+
+  cp -a --no-preserve=ownership "${srcdir}/usr" "${pkgdir}"
+}
