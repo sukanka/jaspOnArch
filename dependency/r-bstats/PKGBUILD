@@ -8,13 +8,13 @@ arch=('x86_64')
 url="https://github.com/AlexanderLyNL/${_cranname}"
 license=('LGPL3')
 depends=(r
- 	r-hypergeo 
+ 	  r-hypergeo 
     r-purrr
-    r-SuppDists 
+    r-suppdists 
 )
 makedepends=()
 optdepends=()
-source=("git+https://github.com/dustinfife/${_cranname}.git")
+source=("git+https://github.com/AlexanderLyNL/${_cranname}.git")
 sha256sums=('SKIP')
 
 
