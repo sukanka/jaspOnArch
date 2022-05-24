@@ -1,0 +1,40 @@
+_cranname=party
+_cranver=1.3-10
+pkgname=r-${_cranname,,}
+pkgver=${_cranver//[:-]/.}
+pkgrel=1
+pkgdesc="A Laboratory for Recursive Partytioning"
+arch=('x86_64')
+url="https://cran.r-project.org/package=${_cranname}"
+license=('GPL2')
+depends=(r
+r-mvtnorm
+r-modeltools 
+r-strucchange
+r-survival 
+r-coin
+r-zoo
+r-sandwich
+)
+optdepends=(
+  r-th.data
+  r-mlbench
+  r-colorspace
+  r-vcd
+  r-ipred
+  r-varimp
+  r-randomforest
+)
+
+source=("https://cran.r-project.org/src/contrib/${_cranname}_${_cranver}.tar.gz")
+sha256sums=('95bfc5e970513416c080486a1cd8dfd9f8d59fb691b02ef6ccbe0ce1ed61056b')
+
+build() {
+  R CMD INSTALL ${_cranname}_${_cranver}.tar.gz -l "${srcdir}"
+}
+
+package() {
+  install -dm0755 "${pkgdir}/usr/lib/R/library"
+
+  cp -a --no-preserve=ownership "${_cranname}" "${pkgdir}/usr/lib/R/library"
+}
