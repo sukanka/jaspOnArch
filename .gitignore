@@ -1,6 +1,6 @@
 *.tar.gz
 *.tar.zst
-jasp-desktop/**/*
+jasp-desktop/**/
 r-jaspbase/**/
 .SRCINFO
 !*.patch
