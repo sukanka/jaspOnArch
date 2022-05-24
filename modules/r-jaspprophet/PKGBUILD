@@ -1,19 +1,19 @@
 _cranname=jaspProphet
-_cranver=TEMPVER
+_cranver=0.13.0
 pkgname=r-${_cranname,,}
 pkgver=${_cranver//[:-]/.}
 pkgrel=1
-pkgdesc="jaspProphetDESC"
+pkgdesc="Prophet Module (Beta) for JASP"
 arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
 license=('GPL')
 depends=(r
-'r-jsonlite' 'r-pkgbuild'
-'r-rjson' 'r-rvg' 
- 'r-testthat'
-'r-data.table' 'r-httr' 'r-lifecycle'
-'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
-'r-vdiffr'
+  r-ggplot2,
+  r-jaspbase,
+  r-jaspgraphs,
+  r-prophet,
+  r-scales
+  r-rstan
 )
 makedepends=()
 optdepends=()

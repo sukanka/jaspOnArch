@@ -1,19 +1,25 @@
 _cranname=jaspMixedModels
-_cranver=TEMPVER
+_cranver=0.15.0
 pkgname=r-${_cranname,,}
 pkgver=${_cranver//[:-]/.}
 pkgrel=1
-pkgdesc="jaspMixedModelsDESC"
+pkgdesc="Mixed Models Module for JASP"
 arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
 license=('GPL')
 depends=(r
-'r-jsonlite' 'r-pkgbuild'
-'r-rjson' 'r-rvg' 
- 'r-testthat'
-'r-data.table' 'r-httr' 'r-lifecycle'
-'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
-'r-vdiffr'
+  r-afex 
+  r-emmeans 
+  r-ggplot2
+  r-ggpol
+  r-jaspbase
+  r-jaspgraphs
+  r-lme4
+  r-loo
+  r-mgcv
+  r-rstan
+  r-rstanarm
+  r-stanova
 )
 makedepends=()
 optdepends=()

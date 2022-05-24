@@ -1,22 +1,20 @@
 _cranname=jaspCochrane
-_cranver=TEMPVER
+_cranver=0.15.0
 pkgname=r-${_cranname,,}
 pkgver=${_cranver//[:-]/.}
 pkgrel=1
-pkgdesc="jaspCochraneDESC"
+pkgdesc="Cochrane Module for JASP"
 arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
 license=('GPL')
 depends=(r
-'r-jsonlite' 'r-pkgbuild'
-'r-rjson' 'r-rvg' 
- 'r-testthat'
-'r-data.table' 'r-httr' 'r-lifecycle'
-'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
-'r-vdiffr'
+  r-jaspbase
+  r-jaspgraphs
+  r-jaspdescriptives
+  r-jaspmetaanalysis
 )
 makedepends=()
-optdepends=()
+optdepends=('r-testthat')
 source=("git+https://github.com/jasp-stats/${_cranname}.git")
 sha256sums=('SKIP')
 

@@ -1,19 +1,20 @@
 _cranname=jaspJags
-_cranver=TEMPVER
+_cranver=0.15
 pkgname=r-${_cranname,,}
 pkgver=${_cranver//[:-]/.}
 pkgrel=1
-pkgdesc="jaspJagsDESC"
+pkgdesc="JAGS Module for JASP"
 arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
 license=('GPL')
 depends=(r
-'r-jsonlite' 'r-pkgbuild'
-'r-rjson' 'r-rvg' 
- 'r-testthat'
-'r-data.table' 'r-httr' 'r-lifecycle'
-'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
-'r-vdiffr'
+  r-coda
+  r-ggplot2
+  r-hexbin
+  r-jaspbase
+  r-jaspgraphs
+  r-rjags
+  r-stringr
 )
 makedepends=()
 optdepends=()

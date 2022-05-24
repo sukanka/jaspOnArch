@@ -1,32 +1,38 @@
-_cranname=jaspRegression
-_cranver=0.15
+_cranname=jaspProcessControl
+_cranver=0.16
 pkgname=r-${_cranname,,}
 pkgver=${_cranver//[:-]/.}
 pkgrel=1
-pkgdesc="Regression Module for JASP"
+pkgdesc="Quality Control Module for JASP"
 arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
 license=('GPL')
 depends=(r
-  r-bas
-  r-boot
-  r-bstats
-  r-emmeans
+  r-doe.base
+  r-fitdistrplus
+  r-frf2
   r-ggplot2
   r-ggrepel
-  r-hmeasure
-  r-jaspanova
+  r-goftest
+  r-irr
   r-jaspbase
   r-jaspdescriptives
   r-jaspgraphs
-  r-jaspttests
-  r-lmtest
-  r-matrixstats
-  r-mdscore
-  r-ppcor
-  r-purrr
-  r-rcpp
-  r-statmod
+  r-mle.tools
+  r-psych
+  r-qcc
+  r-rsm
+  r-rspc
+  r-tidyr
+  r-cowplot
+  r-vipor
+  r-ggpp
+  r-tibble
+  r-envstats
+  r-fadist
+  r-daewr
+  r-desirability
+  r-weibullness
 )
 makedepends=()
 optdepends=()

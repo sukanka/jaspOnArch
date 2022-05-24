@@ -1,19 +1,24 @@
 _cranname=jaspSummaryStatistics
-_cranver=TEMPVER
+_cranver=0.15
 pkgname=r-${_cranname,,}
 pkgver=${_cranver//[:-]/.}
 pkgrel=1
-pkgdesc="jaspSummaryStatisticsDESC"
+pkgdesc="Summary Statistics Module for JASP"
 arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
 license=('GPL')
 depends=(r
-'r-jsonlite' 'r-pkgbuild'
-'r-rjson' 'r-rvg' 
- 'r-testthat'
-'r-data.table' 'r-httr' 'r-lifecycle'
-'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
-'r-vdiffr'
+  r-bayesfactor
+  r-bstats
+  r-jaspbase
+  r-jaspfrequencies
+  r-jaspgraphs
+  r-jaspregression
+  r-jaspttests
+  r-jaspanova
+  r-jaspdescriptives
+  r-suppdists
+  r-bayesplay
 )
 makedepends=()
 optdepends=()

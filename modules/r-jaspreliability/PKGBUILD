@@ -1,19 +1,24 @@
 _cranname=jaspReliability
-_cranver=TEMPVER
+_cranver=0.16.2
 pkgname=r-${_cranname,,}
 pkgver=${_cranver//[:-]/.}
 pkgrel=1
-pkgdesc="jaspReliabilityDESC"
+pkgdesc="Reliability Module for JASP"
 arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
 license=('GPL')
 depends=(r
-'r-jsonlite' 'r-pkgbuild'
-'r-rjson' 'r-rvg' 
- 'r-testthat'
-'r-data.table' 'r-httr' 'r-lifecycle'
-'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
-'r-vdiffr'
+  r-bayesrel
+  r-coda
+  r-ggplot2
+  r-ggridges
+  r-jaspbase
+  r-jaspgraphs
+  r-laplacesdemon
+  r-mass
+  r-psych
+  r-lme4
+  r-irr
 )
 makedepends=()
 optdepends=()

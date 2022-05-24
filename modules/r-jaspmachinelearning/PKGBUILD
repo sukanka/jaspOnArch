@@ -1,19 +1,40 @@
 _cranname=jaspMachineLearning
-_cranver=TEMPVER
+_cranver=0.16.3
 pkgname=r-${_cranname,,}
 pkgver=${_cranver//[:-]/.}
 pkgrel=1
-pkgdesc="jaspMachineLearningDESC"
+pkgdesc=" Machine Learning Module for JASP"
 arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
 license=('GPL')
 depends=(r
-'r-jsonlite' 'r-pkgbuild'
-'r-rjson' 'r-rvg' 
- 'r-testthat'
-'r-data.table' 'r-httr' 'r-lifecycle'
-'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
-'r-vdiffr'
+  r-auc
+  r-cluster
+  r-colorspace
+  r-dbscan
+  r-e1071
+  r-fpc
+  r-gbm
+  r-gmedian
+  r-ggparty
+  r-ggdendro
+  r-ggnetwork
+  r-ggplot2
+  r-ggrepel
+  r-ggridges
+  r-glmnet
+  r-jaspbase
+  r-jaspgraphs
+  r-neuralnet
+  r-network
+  r-partykit
+  r-plyr
+  r-randomforest
+  r-rpart
+  r-rocr
+  r-rtsne
+  r-signal
+  r-kknn
 )
 makedepends=()
 optdepends=()
