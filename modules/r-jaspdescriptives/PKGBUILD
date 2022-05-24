@@ -1,0 +1,33 @@
+_cranname=jaspDescriptives
+_cranver=0.15.0
+pkgname=r-${_cranname,,}
+pkgver=${_cranver//[:-]/.}
+pkgrel=1
+pkgdesc="Descriptives Module for JASP"
+arch=('x86_64')
+url="https://cran.r-project.org/package=${_cranname}"
+license=('GPL2+')
+depends=(r
+'r-ggplot2'
+'r-ggrepel'
+'r-stringr'
+'r-jaspbase'
+'r-jaspgraphs'
+)
+makedepends=()
+optdepends=()
+source=("git+https://github.com/jasp-stats/${_cranname}.git")
+sha256sums=('SKIP')
+
+
+build() {
+  mkdir -p ${srcdir}/usr/lib/R/library
+  R -e "install.packages('${srcdir}/${_cranname}',\
+     type='source', repos=NULL,lib='${srcdir}/usr/lib/R/library', INSTALL_opts='--no-multiarch --no-docs --no-test-load')"
+  
+}
+
+package() {
+
+  cp -a --no-preserve=ownership "${srcdir}/usr" "${pkgdir}"
+}

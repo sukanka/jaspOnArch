@@ -1,0 +1,46 @@
+_cranname=jaspAnova
+_cranver=0.15
+pkgname=r-${_cranname,,}
+pkgver=${_cranver//[:-]/.}
+pkgrel=1
+pkgdesc="ANOVA Module for JASP"
+arch=('x86_64')
+url="https://cran.r-project.org/package=${_cranname}"
+license=('GPL2+')
+depends=(r
+  r-afex
+  r-bayesfactor
+  r-boot
+  r-car
+  r-colorspace
+  r-emmeans
+  r-ggplot2
+  r-jaspbase
+  r-jaspdescriptives
+  r-jaspgraphs
+  r-jaspttests
+  r-kernsmooth
+  r-matrixstats
+  r-multcomp
+  r-onewaytests
+  r-plyr
+  r-stringi
+  r-stringr
+  r-restriktor
+)
+makedepends=()
+optdepends=()
+source=("git+https://github.com/jasp-stats/${_cranname}.git")
+sha256sums=('SKIP')
+
+
+build() {
+  mkdir -p ${srcdir}/usr/lib/R/library
+  R -e "install.packages('${srcdir}/${_cranname}',\
+     type='source', repos=NULL,lib='${srcdir}/usr/lib/R/library', INSTALL_opts='--no-multiarch --no-docs --no-test-load')"
+}
+
+package() {
+
+  cp -a --no-preserve=ownership "${srcdir}/usr" "${pkgdir}"
+}

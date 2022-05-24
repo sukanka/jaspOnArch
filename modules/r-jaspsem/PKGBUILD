@@ -1,0 +1,33 @@
+_cranname=jaspSem
+_cranver=TEMPVER
+pkgname=r-${_cranname,,}
+pkgver=${_cranver//[:-]/.}
+pkgrel=1
+pkgdesc="jaspSemDESC"
+arch=('x86_64')
+url="https://cran.r-project.org/package=${_cranname}"
+license=('GPL')
+depends=(r
+'r-jsonlite' 'r-pkgbuild'
+'r-rjson' 'r-rvg' 
+ 'r-testthat'
+'r-data.table' 'r-httr' 'r-lifecycle'
+'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
+'r-vdiffr'
+)
+makedepends=()
+optdepends=()
+source=("git+https://github.com/jasp-stats/${_cranname}.git")
+sha256sums=('SKIP')
+
+
+build() {
+  mkdir -p ${srcdir}/usr/lib/R/library
+  R -e "install.packages('${srcdir}/${_cranname}',\
+     type='source', repos=NULL,lib='${srcdir}/usr/lib/R/library', INSTALL_opts='--no-multiarch --no-docs --no-test-load')"
+}
+
+package() {
+
+  cp -a --no-preserve=ownership "${srcdir}/usr" "${pkgdir}"
+}
