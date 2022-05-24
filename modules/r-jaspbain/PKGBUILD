@@ -6,7 +6,7 @@ pkgrel=1
 pkgdesc="Bain Module for JASP"
 arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
-license=('GPL3+')
+license=('GPL3')
 depends=(r
   r-bain
   r-stats

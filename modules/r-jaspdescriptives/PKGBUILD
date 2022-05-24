@@ -6,7 +6,7 @@ pkgrel=1
 pkgdesc="Descriptives Module for JASP"
 arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
-license=('GPL2+')
+license=('GPL')
 depends=(r
 'r-ggplot2'
 'r-ggrepel'
