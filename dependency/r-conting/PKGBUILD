@@ -1,0 +1,31 @@
+_cranname=conting
+_cranver=1.7.9999
+pkgname=r-${_cranname,,}
+pkgver=${_cranver//[:-]/.}
+pkgrel=1
+pkgdesc="Bayesian Analysis of Contingency Tables"
+arch=('x86_64')
+url="https://github.com/vandenman/${_cranname}"
+license=('GPL2')
+depends=(r
+  	r-mvtnorm
+	r-gtools
+ 	r-tseries
+ 	r-coda
+)
+makedepends=()
+optdepends=()
+source=("git+https://github.com/vandenman/conting.git")
+sha256sums=('SKIP')
+
+
+build() {
+  mkdir -p ${srcdir}/usr/lib/R/library
+  R -e "install.packages('${srcdir}/${_cranname}',\
+     type='source', repos=NULL,lib='${srcdir}/usr/lib/R/library', INSTALL_opts='--no-multiarch --no-docs --no-test-load')"
+}
+
+package() {
+
+  cp -a --no-preserve=ownership "${srcdir}/usr" "${pkgdir}"
+}
