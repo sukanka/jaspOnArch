@@ -8,7 +8,7 @@ arch=('x86_64')
 url="https://github.com/dustinfife/${_cranname}"
 license=('GPL2')
 depends=(r
-  r-cowplot
+  	r-cowplot
 	r-tibble
 	r-withr
 	r-dplyr
@@ -22,11 +22,11 @@ depends=(r
 	r-ggsci
 	r-lme4
 	r-party
-	r-mgcv
+# 	r-mgcv
 	r-rlang
-  r-stats
+#   	r-stats
 )
-makedepends=()
+makedepends=(r-jmvcore)
 optdepends=(
   r-jmvcore
 	r-vdiffr

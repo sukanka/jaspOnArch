@@ -5,3 +5,4 @@ r-jaspbase/**/
 .SRCINFO
 !*.patch
 *.R
+dependency/r-flexplot/**/

@@ -11,7 +11,7 @@ depends=(r
  	  r-lme4
     r-coda
     r-rstan
-    r-stats
+    # r-stats
     r-emmeans
 )
 makedepends=()
@@ -19,9 +19,9 @@ optdepends=(
     r-testthat 
     r-rstanarm
     r-brms
-    r-MEMSS
+    r-memss
     r-afex
-    r-glmmTMB
+    r-glmmtmb
     r-bayesplot
     r-tibble
     r-tidybayes
