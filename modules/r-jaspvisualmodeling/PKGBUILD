@@ -9,8 +9,8 @@ url="https://cran.r-project.org/package=${_cranname}"
 license=('GPL')
 depends=(r
   r-flexplot
-  r-jaspBase
-  r-jaspGraphs
+  r-jaspbase
+  r-jaspgraphs
 )
 makedepends=()
 optdepends=()

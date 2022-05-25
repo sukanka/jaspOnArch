@@ -8,10 +8,10 @@ arch=('x86_64')
 url="https://cran.r-project.org/package=${_cranname}"
 license=('GPL')
 depends=(r
-  r-ggplot2,
-  r-jaspbase,
-  r-jaspgraphs,
-  r-prophet,
+  r-ggplot2
+  r-jaspbase
+  r-jaspgraphs
+  r-prophet
   r-scales
   r-rstan
 )
