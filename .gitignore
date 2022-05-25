@@ -6,3 +6,4 @@ r-jaspbase/**/
 !*.patch
 *.R
 dependency/r-flexplot/**/
+*.txt
