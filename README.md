@@ -118,7 +118,7 @@ The following are currently needed r packages, `optdepends` not included. The nu
 - [ ] 1 r-abtest
 
 ## Jasp R module build status
-###Common
+### Common
 - [x] jaspDescriptives
 - [ ] jaspTTests
 - [ ] jaspAnova
@@ -127,7 +127,7 @@ The following are currently needed r packages, `optdepends` not included. The nu
 - [ ] jaspFrequencies
 - [ ] jaspFactor
 
-###Extra
+### Extra
 - [ ] jaspAudit
 - [ ] jaspBain
 - [x] jaspCircular
