@@ -1,0 +1,3 @@
+[submodule "pkgbuild-generator-for-r"]
+	path = pkgbuild-generator-for-r
+	url = https://github.com/hubutui/pkgbuild-generator-for-r.git

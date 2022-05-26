@@ -152,3 +152,4 @@ The following are currently needed r packages, `optdepends` not included. The nu
 
 ## Acknowledgement
 This project uses many packages from [BioArchLinux](https://github.com/BioArchLinux/Packages).
+This project also uses [pkgbuild-generator-for-r](https://github.com/hubutui/pkgbuild-generator-for-r) to automatically generate PKGBUILD for r packages.
