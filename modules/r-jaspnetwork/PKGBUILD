@@ -37,6 +37,7 @@ build() {
 }
 
 package() {
-
   cp -a --no-preserve=ownership "${srcdir}/usr" "${pkgdir}"
+  mkdir -p  ${pkgdir}/usr/lib/jasp-desktop/Modules
+  ln -s /usr/lib/R/library ${pkgdir}/usr/lib/jasp-desktop/Modules/${_cranname}
 }
