@@ -21,6 +21,7 @@ depends=(r
 'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
 'r-vdiffr'
 )
+groups=(r-jasp)
 makedepends=()
 optdepends=()
 source=("git+https://github.com/jasp-stats/${_cranname}.git")

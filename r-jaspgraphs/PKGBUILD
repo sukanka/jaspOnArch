@@ -16,6 +16,7 @@ depends=(r
 'r-viridislite'
 'r-rcolorbrewer'
 )
+groups=(r-jasp)
 makedepends=()
 optdepends=('r-testthat')
 source=("git+https://github.com/jasp-stats/${_cranname}.git")
