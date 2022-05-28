@@ -13,6 +13,7 @@ depends=(r
   r-circular
   r-ggplot2
 )
+groups=(r-jasp)
 makedepends=()
 optdepends=()
 source=("git+https://github.com/jasp-stats/${_cranname}.git")

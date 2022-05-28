@@ -19,6 +19,7 @@ depends=(r
   r-vcd
   r-vcdextra
 )
+groups=(r-jasp)
 makedepends=()
 optdepends=()
 source=("git+https://github.com/jasp-stats/${_cranname}.git")

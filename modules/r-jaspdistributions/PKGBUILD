@@ -18,6 +18,7 @@ depends=(r
   r-sgt
   r-sn
 )
+groups=(r-jasp)
 makedepends=()
 optdepends=()
 source=("git+https://github.com/jasp-stats/${_cranname}.git")
