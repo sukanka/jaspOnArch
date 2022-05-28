@@ -6,7 +6,7 @@ _cran="https://mirrors.bfsu.edu.cn/CRAN"
 pkgver=0.16.2
 pkgrel=1
 pkgdesc="A complete statistical package for both Bayesian and Frequentist statistical methods"
-arch=('any')
+arch=('x86_64')
 url="https://github.com/hkrn/nanoem"
 license=('AGPL3')
 makedepends=("cmake" 'boost' 'jsoncpp'
@@ -18,9 +18,6 @@ makedepends=("cmake" 'boost' 'jsoncpp'
 'jags'
 'gcc-fortran'
 'qtcreator'
-
-# 'r-jaspbase'
-
 )
 depends=('r'
 'qt6-5compat'
@@ -28,6 +25,41 @@ depends=('r'
 'libarchive'
 'r-rinside'
 'qt6-base'
+'qt6-webengine'
+
+# jaspBase
+"r-jaspbase"
+"r-jaspgraphs"
+"r-jaspresults"
+"r-jasptools"
+
+#jaspCommon
+"r-jaspdescriptives"
+"r-jaspttests"
+"r-jaspanova"
+"r-jaspmixedmodels"
+"r-jaspregression"
+"r-jaspfrequencies"
+"r-jaspfactor"
+
+#jaspExtra
+"r-jaspaudit"
+"r-jaspbain"
+"r-jaspcircular"
+"r-jaspcochrane"
+"r-jaspdistributions"
+"r-jaspequivalencettests"
+"r-jaspjags"
+"r-jasplearnbayes"
+"r-jaspmachinelearning"
+"r-jaspmetaanalysis"
+"r-jaspnetwork"
+"r-jaspprocesscontrol"
+"r-jaspreliability"
+"r-jaspsem"
+"r-jaspsummarystatistics"
+"r-jaspvisualmodeling"
+"r-jaspprophet"
 )
 provides=($_pkgname)
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/jasp-stats/jasp-desktop/archive/refs/tags/v0.16.2.tar.gz"
