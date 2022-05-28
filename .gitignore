@@ -1,9 +1,0 @@
-*.tar.gz
-*.tar.zst
-jasp-desktop/**/
-r-jaspbase/**/
-.SRCINFO
-!*.patch
-*.R
-dependency/r-flexplot/**/
-*.txt
