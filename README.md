@@ -3,9 +3,11 @@ Build [jasp-desktop](https://github.com/jasp-stats/jasp-desktop) on Archlinux fr
 
 Current Progress: 
 * Build: pass
-* Run: basically ok, only some modules are packed currently.
+* Run: Ok
+* Test: Unknown.
 
-Todo: add `group=('r-jasp')` for all jasp modules.
+Todo: move all packages to [BioArchLinux](https://github.com/BioArchLinux/Packages).
+
 
 ## Needed R packages
 The R modules of jasp need some dependencies from CRAN.
@@ -21,31 +23,31 @@ Some dependencies are from github, not included in cran, they are
 ## Jasp R module build status
 ### Common
 - [x] jaspDescriptives
-- [ ] jaspTTests
-- [ ] jaspAnova
-- [ ] jaspMixedModels
-- [ ] jaspRegression
-- [ ] jaspFrequencies
-- [ ] jaspFactor
+- [x] jaspTTests
+- [x] jaspAnova
+- [x] jaspMixedModels
+- [x] jaspRegression
+- [x] jaspFrequencies
+- [x] jaspFactor
 
 ### Extra
-- [ ] jaspAudit
-- [ ] jaspBain
+- [x] jaspAudit
+- [x] jaspBain
 - [x] jaspCircular
-- [ ] jaspCochrane
-- [ ] jaspDistributions
-- [ ] jaspEquivalenceTTests
+- [x] jaspCochrane
+- [x] jaspDistributions
+- [x] jaspEquivalenceTTests
 - [x] jaspJags
-- [ ] jaspLearnBayes
-- [ ] jaspMachineLearning
-- [ ] jaspMetaAnalysis
-- [ ] jaspNetwork
-- [ ] jaspProcessControl (not used in jasp-desktop currently)
-- [ ] jaspReliability
-- [ ] jaspSem
-- [ ] jaspSummaryStatistics
+- [x] jaspLearnBayes
+- [x] jaspMachineLearning
+- [x] jaspMetaAnalysis
+- [x] jaspNetwork
+- [x] jaspProcessControl (not used in jasp-desktop currently)
+- [x] jaspReliability
+- [x] jaspSem
+- [x] jaspSummaryStatistics
 - [x] jaspVisualModeling
-- [ ] jaspProphet
+- [x] jaspProphet
 
 
 
