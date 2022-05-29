@@ -1,5 +1,6 @@
 _cranname=jaspReliability
 _cranver=0.16.2
+_commit=39927c2
 pkgname=r-${_cranname,,}
 pkgver=${_cranver//[:-]/.}
 pkgrel=1
@@ -23,7 +24,7 @@ depends=(r
 groups=(r-jasp)
 makedepends=()
 optdepends=()
-source=("git+https://github.com/jasp-stats/${_cranname}.git")
+source=("git+https://github.com/jasp-stats/${_cranname}.git#commit=${_commit}")
 sha256sums=('SKIP')
 
 

@@ -1,5 +1,6 @@
 _cranname=jaspProphet
 _cranver=0.13.0
+_commit=54b40ff
 pkgname=r-${_cranname,,}
 pkgver=${_cranver//[:-]/.}
 pkgrel=1
@@ -18,7 +19,7 @@ depends=(r
 groups=(r-jasp)
 makedepends=()
 optdepends=()
-source=("git+https://github.com/jasp-stats/${_cranname}.git")
+source=("git+https://github.com/jasp-stats/${_cranname}.git#commit=${_commit}")
 sha256sums=('SKIP')
 
 
