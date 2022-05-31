@@ -84,8 +84,9 @@ prepare(){
     cp -rf $srcdir/jaspResults/*        R-Interface/jaspResults
     
     find Tools/CMake -name *.cmake -print0 | xargs -0 sed -i "s|/usr/local|/usr|g"
-#     sed -i "s|lib='\${R_LIBRARY_PATH}'|lib='${srcdir}/usr/lib/R'|g"  Tools/CMake/R.cmake
-    sed -i "s|set(R_LIBRARY_PATH \"\${R_HOME_PATH}/library\")|set(R_LIBRARY_PATH \"${srcdir}/usr/lib/R/library\")|g" Tools/CMake/R.cmake
+    sed -i "s|lib='\${R_LIBRARY_PATH}'|lib='${srcdir}/usr/lib/R'|g"  Tools/CMake/R.cmake
+    find Modules/ -name '*.in' -print0 | xargs -0 sed -i '1,$d;1a print("I am OK!")'
+#     sed -i "s|set(R_LIBRARY_PATH \"\${R_HOME_PATH}/library\")|set(R_LIBRARY_PATH \"${srcdir}/usr/lib/R/library\")|g" Tools/CMake/R.cmake
 }
 
 
