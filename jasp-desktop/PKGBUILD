@@ -1,10 +1,9 @@
 #Maintainer: sukanka <su975853527 AT gmail.com>
-# Maintainer: sukanka <su975853527 AT gmail dot com>
 
-pkgname=jasp-desktop
 _pkgname=jasp
-_cran="https://mirrors.bfsu.edu.cn/CRAN"
-pkgver=0.16.2
+_pkgver=0.16.2
+pkgname=jasp-desktop
+pkgver=${_pkgver//[:-]/.}
 pkgrel=1
 pkgdesc="A complete statistical package for both Bayesian and Frequentist statistical methods"
 arch=('x86_64')
@@ -46,6 +45,7 @@ depends=('r'
 #jaspExtra
 "r-jaspaudit"
 "r-jaspbain"
+"r-jaspbsts"
 "r-jaspcircular"
 "r-jaspcochrane"
 "r-jaspdistributions"
@@ -63,11 +63,11 @@ depends=('r'
 "r-jaspprophet"
 )
 provides=($_pkgname)
-source=("${pkgname}-${pkgver}.tar.gz::https://github.com/jasp-stats/jasp-desktop/archive/refs/tags/v0.16.2.tar.gz"
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/jasp-stats/jasp-desktop/archive/refs/tags/v${pkgver}.tar.gz"
 "${_pkgname}".patch
 'jasp.sh'
-"jaspColumnEncoder::git+https://github.com/jasp-stats/jaspColumnEncoder.git#commit=aaacc69"
-'jaspResults::git+https://github.com/jasp-stats/jaspResults.git#commit=fdcd76'
+"jaspColumnEncoder::git+https://github.com/jasp-stats/jaspColumnEncoder.git"
+'jaspResults::git+https://github.com/jasp-stats/jaspResults.git'
 )
 sha256sums=('6f62db1b2b0741c894a7937f413799887e0d443f25f1b85d59e914847b14fff1'
             '3e359651595e76790ea287b57cfd629279f027a9934a36b95b2825c2ba3bf43d'
@@ -92,10 +92,9 @@ build(){
     cmake -S . -B build -DCUSTOM_R_PATH=/usr/lib/R -DLINUX_LOCAL_BUILD=OFF -DINSTALL_R_MODULES=OFF \
         -DUSE_LOCAL_R_LIBS_PATH=",lib=\"${srcdir}/usr/lib/R\"" \
         -DCMAKE_BUILD_TYPE=Release \
-        -DR_REPOSITORY="${_cran}" \
         -DCMAKE_INSTALL_PREFIX=/usr/lib/${pkgname} -DCMAKE_INSTALL_LIBDIR=lib 
         
-    cmake --build build
+    cmake --build build 
 }
 
 package() {
