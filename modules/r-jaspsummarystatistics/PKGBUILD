@@ -21,7 +21,7 @@ depends=(r
   r-suppdists
   r-bayesplay
 )
-groups=(r-jasp)
+groups=(r-jasp r-jaspextra)
 makedepends=()
 optdepends=()
 source=("git+https://github.com/jasp-stats/${_pkgname}.git")

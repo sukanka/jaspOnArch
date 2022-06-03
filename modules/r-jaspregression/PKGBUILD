@@ -29,7 +29,7 @@ depends=(r
   r-rcpp
   r-statmod
 )
-groups=(r-jasp)
+groups=(r-jasp r-jaspcommon)
 makedepends=()
 optdepends=()
 source=("git+https://github.com/jasp-stats/${_pkgname}.git")

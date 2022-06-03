@@ -14,7 +14,7 @@ depends=(r
   r-jaspdescriptives
   r-jaspmetaanalysis
 )
-groups=(r-jasp)
+groups=(r-jasp r-jaspextra)
 makedepends=()
 optdepends=('r-testthat')
 source=("git+https://github.com/jasp-stats/${_pkgname}.git")
