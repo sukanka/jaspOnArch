@@ -1,12 +1,12 @@
 #Maintainer: sukanka <su975853527 AT gmail.com>
-_cranname=flexplot
-_cranver=0.13.3
-pkgname=r-${_cranname,,}
-pkgver=${_cranver//[:-]/.}
+_pkgname=flexplot
+_pkgver=0.13.3
+pkgname=r-${_pkgname,,}
+pkgver=${_pkgver//[:-]/.}
 pkgrel=1
 pkgdesc="Graphically Based Data Analysis"
 arch=('x86_64')
-url="https://github.com/dustinfife/${_cranname}"
+url="https://github.com/dustinfife/${_pkgname}"
 license=('GPL2')
 depends=(r
   	r-cowplot
@@ -42,7 +42,7 @@ sha256sums=('SKIP')
 
 build() {
   mkdir -p ${srcdir}/usr/lib/R/library
-  R -e "install.packages('${srcdir}/${_cranname}',\
+  R -e "install.packages('${srcdir}/${_pkgname}',\
      type='source', repos=NULL,lib='${srcdir}/usr/lib/R/library', INSTALL_opts='--no-multiarch --no-docs --no-test-load')"
 }
 

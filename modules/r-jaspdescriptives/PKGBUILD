@@ -1,12 +1,12 @@
 #Maintainer: sukanka <su975853527 AT gmail.com>
-_cranname=jaspDescriptives
-_cranver=0.15.0
-pkgname=r-${_cranname,,}
-pkgver=${_cranver//[:-]/.}
+_pkgname=jaspDescriptives
+_pkgver=0.15.0
+pkgname=r-${_pkgname,,}
+pkgver=${_pkgver//[:-]/.}
 pkgrel=1
 pkgdesc="Descriptives Module for JASP"
 arch=('x86_64')
-url="https://cran.r-project.org/package=${_cranname}"
+url="https://cran.r-project.org/package=${_pkgname}"
 license=('GPL')
 depends=(r
 'r-ggplot2'
@@ -18,13 +18,13 @@ depends=(r
 groups=(r-jasp)
 makedepends=()
 optdepends=()
-source=("git+https://github.com/jasp-stats/${_cranname}.git")
+source=("git+https://github.com/jasp-stats/${_pkgname}.git")
 sha256sums=('SKIP')
 
 
 build() {
   mkdir -p ${srcdir}/usr/lib/R/library
-  R -e "install.packages('${srcdir}/${_cranname}',\
+  R -e "install.packages('${srcdir}/${_pkgname}',\
      type='source', repos=NULL,lib='${srcdir}/usr/lib/R/library', INSTALL_opts='--no-multiarch --no-docs --no-test-load')"
   
 }
@@ -32,5 +32,5 @@ build() {
 package() {
   cp -a --no-preserve=ownership "${srcdir}/usr" "${pkgdir}"
   mkdir -p  ${pkgdir}/usr/lib/jasp-desktop/Modules
-  ln -s /usr/lib/R/library ${pkgdir}/usr/lib/jasp-desktop/Modules/${_cranname}
+  ln -s /usr/lib/R/library ${pkgdir}/usr/lib/jasp-desktop/Modules/${_pkgname}
 }
