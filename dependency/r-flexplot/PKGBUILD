@@ -27,7 +27,7 @@ depends=(r
 )
 makedepends=(r-jmvcore)
 optdepends=(
-  r-jmvcore
+  	r-jmvcore
 	r-vdiffr
 	r-knitr
 	r-testthat
@@ -36,7 +36,7 @@ optdepends=(
 	r-papaja
 	r-tidyverse
 )
-source=("git+https://github.com/dustinfife/flexplot.git")
+source=("git+https://github.com/dustinfife/${_pkgname}.git")
 sha256sums=('SKIP')
 
 

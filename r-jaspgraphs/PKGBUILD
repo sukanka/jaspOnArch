@@ -9,7 +9,8 @@ arch=('x86_64')
 url="https://cran.r-project.org/package=${_pkgname}"
 license=('GPL')
 depends=(r
-'r-jsonlite' 'r-lifecycle'
+'r-jsonlite' 
+'r-lifecycle'
 'r-ggplot2'
 'r-gridextra'
 'r-rlang'
@@ -17,7 +18,7 @@ depends=(r
 'r-viridislite'
 'r-rcolorbrewer'
 )
-groups=(r-jasp)
+groups=(r-jasp r-jaspbase)
 makedepends=()
 optdepends=('r-testthat')
 source=("git+https://github.com/jasp-stats/${_pkgname}.git")

@@ -12,7 +12,6 @@ depends=(r
  	  r-lme4
     r-coda
     r-rstan
-    # r-stats
     r-emmeans
 )
 makedepends=()

@@ -14,15 +14,29 @@ depends=(r
 'r-gridgraphics'
 'r-jsonlite'
 'r-modules'
-'r-officer' 'r-pkgbuild'
-'r-plyr' 'r-qgraph' 'r-ragg' 'r-r6' 'r-renv'
-'r-rjson' 'r-rvg' 'r-svglite' 'r-systemfonts'
-'r-withr' 'r-testthat'
-'r-data.table' 'r-httr' 'r-lifecycle'
-'r-pkgload' 'r-remotes' 'r-stringi' 'r-stringr'
+'r-officer' 
+'r-pkgbuild'
+'r-plyr' 
+'r-qgraph' 
+'r-ragg' 
+'r-r6' 
+'r-renv'
+'r-rjson' 
+'r-rvg' 
+'r-svglite' 
+'r-systemfonts'
+'r-withr' 
+'r-testthat'
+'r-data.table' 
+'r-httr' 
+'r-lifecycle'
+'r-pkgload' 
+'r-remotes' 
+'r-stringi' 
+'r-stringr'
 'r-vdiffr'
 )
-groups=(r-jasp)
+groups=(r-jasp r-jaspbase)
 makedepends=()
 optdepends=()
 source=("git+https://github.com/jasp-stats/${_pkgname}.git")

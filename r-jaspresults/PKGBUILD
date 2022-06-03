@@ -11,11 +11,11 @@ license=('GPL')
 depends=(r
 'r-rcpp'
 )
-groups=(r-jasp)
+groups=(r-jasp r-jaspbase)
 makedepends=()
 optdepends=('r-jaspgraphs')
 source=("git+https://github.com/jasp-stats/${_pkgname}.git"
-"jaspColumnEncoder::git+https://github.com/jasp-stats/jaspColumnEncoder.git#commit=aaacc69"
+"jaspColumnEncoder::git+https://github.com/jasp-stats/jaspColumnEncoder.git"
 )
 sha256sums=('SKIP'
             'SKIP')
