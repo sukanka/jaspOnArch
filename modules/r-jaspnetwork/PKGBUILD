@@ -1,3 +1,4 @@
+#Maintainer: sukanka <su975853527 AT gmail.com>
 _cranname=jaspNetwork
 _cranver=0.15
 pkgname=r-${_cranname,,}
