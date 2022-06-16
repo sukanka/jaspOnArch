@@ -6,7 +6,7 @@ Current Progress:
 * Run: Ok
 * Test: Unknown.
 
-Todo: move all packages to [BioArchLinux](https://github.com/BioArchLinux/Packages).
+**Note**: This project is now moved to [BioArchLinux](https://github.com/BioArchLinux/Packages/tree/master/BioArchLinux/jasp-desktop). 
 
 
 ## Needed R packages

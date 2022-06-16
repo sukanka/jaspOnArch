@@ -17,6 +17,7 @@ repo_depends:
   - "r-jaspfactor"
   - "r-jaspaudit"
   - "r-jaspbain"
+  - "r-jaspbsts"
   - "r-jaspcircular"
   - "r-jaspcochrane"
   - "r-jaspdistributions"
@@ -38,3 +39,4 @@ update_on:
   - source: github
     github: jasp-stats/jasp-desktop
     use_latest_release: true
+    prefix: 'v'
